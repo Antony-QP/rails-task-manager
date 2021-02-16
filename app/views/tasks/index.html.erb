@@ -1,8 +1,16 @@
-<ul>
-  <% @tasks.each do |task| %>
-  <li><%= task.title %></li>
-  <li><%= task.details %></li>
-  <li><%= task.completed %></li>
-  <%= link_to 'edit', edit_task_path(task) %>
-  <% end %>
-</ul>
+<div class="container">
+  <div class="cards-container">
+    <% @tasks.each do |task| %>
+    <div class="card">
+      <h3><%= task.title %></h3>
+      <p><%= task.details %></p>
+      <% if task.completed %> 
+      <i class="fas fa-check"></i>
+      <% end %>
+      <%= link_to 'Edit', edit_task_path(task), :class => "btn btn-secondary" %>
+    </div>
+    <% end %>
+  </div>
+</div>
+
+
